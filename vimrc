@@ -1,7 +1,6 @@
 " load base config
 execute 'source' fnamemodify(expand('<sfile>'), ':h').'/.vim/config/base'
 
-
 autocmd BufNewFile *.lua,*.sh,*.php 0r !~/.vim/template.sh %:e
 autocmd BufRead,BufNewFile *.conf setfiletype conf
 autocmd BufRead *.php set includeexpr=substitute(v:fname,'\\\','/','g')
@@ -137,9 +136,12 @@ let g:go_fmt_command = "goimports"
 "
 " NERDTree
 "
-let g:NERDTreeDirArrowExpandable  = '@'
+" autocmd vimenter * NERDTree
+map <F3> :NERDTreeToggle<CR>
+autocmd vimenter * if !argc()|NERDTree|endif
+let g:NERDTreeDirArrowExpandable  = '➤'
 " let g:NERDTreeNodeDelimiter       = "\u00a0"
-let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeDirArrowCollapsible = '▼'
 let g:NERDTreeShowHidden          = 0
 let g:NERDTreeBookmarksFile       = $HOME.'/.vimtmp/NerdBookmarks.txt'
 let g:NERDTreeShowBookmarks       = 1
