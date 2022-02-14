@@ -18,3 +18,39 @@ test -e .git && test ! -e .git/hooks/pre-commit && {
         chmod +x .git/hooks/pre-commit
 }
 
+" 方向键乱码解决
+inoremap OA <UP>
+inoremap OB <DOWN>
+inoremap OC <RIGHT>
+inoremap OD <LEFT>
+
+" 功能键乱码问题解决
+inoremap [6~ <pagedown>
+inoremap [5~ <pageup>
+inoremap OH <home>
+inoremap OF <end>
+inoremap [3~ <del>
+inoremap [2~ <ins>
+
+" 鼠标设置
+set mouse=nvc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

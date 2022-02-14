@@ -1,5 +1,6 @@
 " load base config
-execute 'source' fnamemodify(expand('<sfile>'), ':h').'/.vim/config/base'
+execute 'source' fnamemodify(expand('<sfile>'), ':h').'/config/base'
+inoremap jk <esc>
 
 autocmd BufNewFile *.lua,*.sh,*.php 0r !~/.vim/template.sh %:e
 autocmd BufRead,BufNewFile *.conf setfiletype conf
@@ -10,19 +11,20 @@ autocmd BufWinEnter *.volt,*.tp,*.mako set filetype=html
 autocmd BufWinEnter *.sls set filetype=yaml
 autocmd GUIEnter * silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
 autocmd FileType php setlocal commentstring=//\ %s
-call system('mkdir -p ~/.vimtmp/undodir ~/.vimtmp/backupdir ~/.vimtmp/directory')
+"call system('mkdir -p ~/.vimtmp/undodir ~/.vimtmp/backupdir ~/.vimtmp/directory')
 
 
-colorscheme torte
-filetype on
-filetype plugin indent on
-filetype plugin on
+"colorscheme torte
+"filetype on
+"filetype plugin indent on
+"filetype plugin on
 
 let g:is_bash=1
 let $VIMFILES=$HOME.'/.vim'
 let @w = 'x~n'
 
-nmap <c-l> <esc>:noh<cr>
+"inoremap <c-l> <esc>:noh<cr>
+"inoremap <esc>[ <esc>[
 nmap <leader>3 :NERDTreeFind<cr>
 nmap <leader>a :set filetype=awk        <CR>
 nmap <leader>c :set filetype=css        <CR>
@@ -58,7 +60,7 @@ set noshowmatch
 set nowrapscan
 set number
 set pastetoggle=<F5>
-set path+=./model/,./ctrl/,./lib/,*/templates/,*/static/,..,*/src/main/java/
+set path+=..
 set printoptions=formfeed:y,header:0,paper:A4,duplex:off,syntax:n
 set scrolloff=1
 set shell=/bin/bash
@@ -81,13 +83,14 @@ syntax on
 function Version ()
     return system("grep -o '^v[0-9]*' ~/.vim/version|tr -d '\n'")
 endfunction
-set laststatus=2
-set statusline=(Vide.%{Version()})\ \ %<%f
-set statusline+=%w%h%m%r
-set statusline+=\ %{getcwd()}
-set statusline+=\ [%{&ff}:%{&fenc}:%Y]
-set statusline+=%=%-14.(%l,%c%V%)\ %p%%
 
+set laststatus=2
+"set statusline=(Vide.%{Version()})\ \ %<%f
+"set statusline+=%w%h%m%r
+"set statusline+=\ %{getcwd()}
+"set statusline+=\ [%{&ff}:%{&fenc}:%Y]
+"set statusline+=%=%-14.(%l,%c%V%)\ %p%%
+"
 "
 " vim-plug
 "
@@ -196,6 +199,34 @@ let g:ctrlp_mruf_default_order = 1
 let g:timeStampFormat = '170101'
 let g:timeStampString = '%y%m%d'
 let g:timeStampLeader = 'version'
+
+
+
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+"定义Operator-Pending映射
+onoremap in( :<c-u>normal! f(vi(<cr>
+onoremap in" :<c-u>normal! f"vi"<cr>
+onoremap in' :<c-u>normal! f'vi'<cr>
+
+"一些简单的映射
+nnoremap <leader>q :q<CR>
+nnoremap <leader>w :w<CR>
+map <leader>a ggVG"
+inoremap <C-o> <Esc>o  
+inoremap <C-l> <Right>
+inoremap <C-h> <Left>
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>
+inoremap <C-b> <PageUp>
+inoremap <C-f> <PageDown>
+inoremap <C-u> <ESC>ui
+
+
+
+
+
 
 
 
