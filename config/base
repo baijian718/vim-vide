@@ -8,5 +8,5 @@ let mapleader=","
 let g:go_fmt_command = "goimports"
 
 "回车插入新行
-nnoremap <CR> a<CR><Esc>k$
+nnoremap <CR> o<Esc>
 
