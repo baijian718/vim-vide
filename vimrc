@@ -95,6 +95,7 @@ set laststatus=2
 " vim-plug
 "
 call plug#begin('~/.vim/plug')
+
 Plug 'vim-scripts/taglist.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'wgwoods/vim-systemd-syntax'
@@ -115,6 +116,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-commentary'
 Plug 'vim-syntastic/syntastic'
+Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/fzf',{ 'do':{->fzf#install()}}
 
 call plug#end()
 
@@ -215,19 +218,12 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 map <leader>a ggVG"
 inoremap <C-o> <Esc>o  
-inoremap <C-l> <Right>
-inoremap <C-h> <Left>
-inoremap <C-k> <Up>
-inoremap <C-j> <Down>
-inoremap <C-b> <PageUp>
-inoremap <C-f> <PageDown>
+inoremap <A-l> <Right>
+inoremap <A-h> <Left>
+inoremap <A-k> <Up>
+inoremap <A-j> <Down>
+inoremap <A-b> <PageUp>
+inoremap <A-f> <PageDown>
 inoremap <C-u> <ESC>ui
-
-
-
-
-
-
-
 
 
